@@ -1,0 +1,50 @@
+<div class="container">
+    <div>
+    <h2>Modifier un Livre :</h2>
+    </div>
+    <form >
+    <div hidden class="col-sm-2 col-md-2 col-lg-2">
+    <label >ID Livre</label>
+    <input type="text" [(ngModel)]="currentLivre.idLivre"
+    name="idLivre" class="form-control">
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4" >
+    <label >Titre Livre</label>
+    <input type="text"[(ngModel)]= "currentLivre.titreLivre"
+    name="titreLivre" class="form-control">
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4" >
+        <label >Auteur</label>
+        <input type="text"[(ngModel)]= "currentLivre.auteur"
+        name="auteur" class="form-control">
+        </div>
+    <div class="col-sm-2 col-md-2 col-lg-2">
+    <label >Prix Livre</label>
+    <input type="number" [(ngModel)]= "currentLivre.prixLivre"
+    name="prixLivre" class="form-control">
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+        <label >Date publication</label>
+        <input type="date" [ngModel]="currentLivre.datePublication | date: 'yyyy-MM-dd'"
+        (ngModelChange)=" currentLivre.datePublication= $event" name="datePublication"
+         class="form-control">
+        </div>
+
+
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label >Genre</label>
+            <select class="form-control form-control-lg" id="idGen" name="idGen" [(ngModel)]="updatedGenId">
+            <option *ngFor="let gen of genres" [value]="gen.idGen" >
+            {{gen.nomGen}}
+            </option>
+            </select>
+            </div>
+
+
+        <div class="mt-2">
+        <button type="submit" (click)="updateLivre()" class="btn btn-success">Modifer</button>
+        </div>
+        </form>
+        </div>
+          
+
